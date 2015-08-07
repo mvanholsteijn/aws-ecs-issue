@@ -24,7 +24,7 @@ but when I create a default task definition without specifying a entrypoint or a
 ```
 DockerStateError: [8] System error: exec: "Hello ECS": executable file not found in $PATH
 ````
-it appears that it is trying the execute the cmd instead of the entrypoint plus the cmds.
+it appears that it is trying to execute the cmd instead of the entrypoint plus the cmds.
 
 
 ## files
