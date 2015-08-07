@@ -1,12 +1,27 @@
 CLUSTER=$1
-TASK=$2
+FILE=$2
+TASK=$(basename $2 .json)
 
 ID=
 STATE=
 
+function usage()  {
+	echo USAGE: runtask.sh cluster task-definition-file
+	echo "	" $@
+}
+
+if [ -z "$CLUSTER" ] ; then
+	usage the cluster is missing from the command line.
+	exit 1
+fi
+
+if [ ! -f "$FILE" ] ; then
+	usage the task definition file $FILE is missing from the directory.
+	exit 1
+fi
+
 function registerTask() {
 	aws ecs register-task-definition --cli-input-json "$(<$1.json)"
-	
 }
 
 function runTask() {

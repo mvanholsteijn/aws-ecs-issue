@@ -1,5 +1,5 @@
 {
-  "family": "test-ep-and-arg",
+  "family": "test-with-entrypoint-and-args",
   "containerDefinitions": [
     {
       "volumesFrom": [],
