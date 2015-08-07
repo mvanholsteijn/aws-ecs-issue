@@ -1,0 +1,27 @@
+{
+  "family": "test-ep-and-arg",
+  "containerDefinitions": [
+    {
+      "volumesFrom": [],
+      "portMappings": [
+      ],
+      "command": [
+	"Hello from TaskDefinition",
+	"JSON file"
+      ],
+      "environment": [
+      ],
+      "essential": true,
+      "entryPoint": [
+	"/doit.sh"
+      ],
+      "links": [],
+      "mountPoints": [],
+      "memory": 64,
+      "name": "ecs-bug",
+      "cpu": 100,
+      "image": "mvanholsteijn/ecs-bug:latest"
+    }
+  ],
+  "volumes": []
+}
