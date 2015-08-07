@@ -1,0 +1,25 @@
+{
+  "family": "test-withentrypoint",
+  "containerDefinitions": [
+    {
+      "volumesFrom": [],
+      "portMappings": [
+      ],
+      "command": [
+      ],
+      "environment": [
+      ],
+      "essential": true,
+      "entryPoint": [
+	"/doit.sh"
+      ],
+      "links": [],
+      "mountPoints": [],
+      "memory": 64,
+      "name": "ecs-bug",
+      "cpu": 100,
+      "image": "mvanholsteijn/ecs-bug:latest"
+    }
+  ],
+  "volumes": []
+}
