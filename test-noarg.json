@@ -1,0 +1,23 @@
+{
+  "family": "ecs-noarg",
+  "containerDefinitions": [
+    {
+      "volumesFrom": [],
+      "portMappings": [
+      ],
+      "command": [],
+      "environment": [
+      ],
+      "essential": true,
+      "entryPoint": [
+      ],
+      "links": [],
+      "mountPoints": [],
+      "memory": 64,
+      "name": "ecs-bug",
+      "cpu": 100,
+      "image": "mvanholsteijn/ecs-bug:latest"
+    }
+  ],
+  "volumes": []
+}
