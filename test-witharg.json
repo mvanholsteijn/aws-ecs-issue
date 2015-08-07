@@ -1,11 +1,12 @@
 {
-  "family": "test-noarg",
+  "family": "test-witharg",
   "containerDefinitions": [
     {
       "volumesFrom": [],
       "portMappings": [
       ],
       "command": [
+		"hello", "from JSON"
       ],
       "environment": [
       ],
