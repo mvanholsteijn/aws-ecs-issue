@@ -21,8 +21,20 @@ function getStatus() {
 	echo "$STATE" | jq -r '.tasks[0].lastStatus'
 }
 
-function printSummary() {
-	echo "$STATE" | jq -r '.tasks[0].containers[0] | .lastStatus ,  .reason , .exitCode'
+function getStatus() {
+	echo "$STATE" | jq -r '.tasks[0].containers[0] | .lastStatus '
+}
+
+function getExitCode() {
+	echo "$STATE" | jq -r '.tasks[0].containers[0] | select(.exitCode != null) | .exitCode'
+}
+
+function getReason() {
+	echo "$STATE" | jq -r '.tasks[0].containers[0] | if (.reason  | length ) > 0 then .reason else "" end'
+}
+
+printSummary() {
+	echo $(getStatus) $(getExitCode) $(getReason)
 }
 
 function getInstanceId() {
@@ -45,7 +57,9 @@ while [ "$(getStatus)" == PENDING ] ; do
 done
 printSummary
 
-IP=$(getInstanceIp)
-ssh ec2-user@$IP <<!
+if [ $(getExitCode) -ge 0 ] ; then
+	IP=$(getInstanceIp)
+	ssh ec2-user@$IP <<!
 docker logs \$(docker ps -a | grep mvanholsteijn/ecs-bug | head -1 | awk '{print \$1}')
 !
+fi
