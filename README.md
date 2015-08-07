@@ -27,4 +27,11 @@ DockerStateError: [8] System error: exec: "Hello ECS": executable file not found
 it appears that it is trying the execute the cmd instead of the entrypoint plus the cmds.
 
 
+## files
+- Makefile - creates the docker image and pushes it the the registry
+- Dockerfile - a sample Dockerfile with default entrypoint and arguments
+- runtask.sh - runs a task
+- test-noarg.json - ECS task definition running the image without entrypoint or arguments (FAIL)
+- test-witharg.json - ECS task definition using arguments only (FAIL)
+- test-with-entrypoint-and-args.json  - ECS task definition running with both entrypoint and arguments 
 

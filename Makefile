@@ -7,7 +7,7 @@ test:
 	./runtask.sh $(CLUSTER) test-noarg.json
 	./runtask.sh $(CLUSTER) test-witharg.json
 	./runtask.sh $(CLUSTER) test-withentrypoint.json
-	./runtask.sh $(CLUSTER) test-with-entrypoint-and-arguments.json
+	./runtask.sh $(CLUSTER) test-with-entrypoint-and-args.json
 	
 build: 
 	docker build --no-cache --force-rm -t $(REPREV) .
